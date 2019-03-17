@@ -2,6 +2,7 @@ package de.guntram.bukkit.NoPhantoms;
 
 import com.destroystokyo.paper.event.entity.PhantomPreSpawnEvent;
 import org.bukkit.Location;
+import org.bukkit.Statistic;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
@@ -47,7 +48,10 @@ public class Main extends JavaPlugin implements Listener {
                 Settings.setEnabledFor((Player)sender, false);
                 return true;
             } else if (args[0].equals("query")) {
-                sender.sendMessage("Phantom spawn is "+(Settings.isEnabledFor((Player)sender) ? "on" : "off"));
+                
+                int stats = ((Player)sender).getStatistic(Statistic.TIME_SINCE_REST);
+                sender.sendMessage("Phantom spawn is "+(Settings.isEnabledFor((Player)sender) ? "on" : "off")
+                    +", last slept "+(stats/1000)+" game hours ago (phantoms spawn after 72 hours)");
                 return true;
             }
             return false;
