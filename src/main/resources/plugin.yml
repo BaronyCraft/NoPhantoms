@@ -1,0 +1,15 @@
+name: NoPhantoms
+author: BaronyCraft
+description: Allow players to control if they can spawn phantoms or not
+version: 1.0.0
+api-version: 1.13
+main: de.guntram.bukkit.NoPhantoms.Main
+softdepend:
+commands:
+  phantoms:
+    description: Control phantom spawn
+    usage: /phantoms on|off|query
+permissions:
+  phantoms.switch:
+    description: Allow switching phantoms on/off
+    default: true
