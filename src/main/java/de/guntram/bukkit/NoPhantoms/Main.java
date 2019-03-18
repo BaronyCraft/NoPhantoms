@@ -67,6 +67,7 @@ public class Main extends JavaPlugin implements Listener {
             if (!Settings.isEnabledFor((Player)entity)) {
                 System.out.println("Phantom spawning for player "+entity.getName()+" disabled: suppressing");
                 event.setShouldAbortSpawn(true);
+                event.setCancelled(true);
             }
         }
     }
